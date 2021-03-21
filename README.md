@@ -1,2 +1,2 @@
 # Software-Design-Pattern-Spring-2021
-for homework
+Basically this repository for showing homework to the Teacher
