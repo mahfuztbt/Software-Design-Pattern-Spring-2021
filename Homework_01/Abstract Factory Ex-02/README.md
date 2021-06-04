@@ -1,7 +1,11 @@
 
 **Step 1:** Create a Bank interface
-
-
+'''
+import java.io.*;
+interface Bank{
+    String getBankName();
+} 
+'''
 **Step 2:** Create concrete classes that implement the Bank interface
 
 **Step 3:** Create the loan abstract class.
