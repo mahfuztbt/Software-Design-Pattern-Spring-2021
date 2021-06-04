@@ -1,6 +1,6 @@
 
 **Step 1:** Create a Bank interface
-'''
+'''java
 import java.io.*;
 interface Bank{
     String getBankName();
