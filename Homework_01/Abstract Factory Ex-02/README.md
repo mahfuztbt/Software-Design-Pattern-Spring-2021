@@ -185,3 +185,9 @@ class AbstractFactoryPatternExample {
 }
 ```
 
+## class diagram
+![java class diagram](https://user-images.githubusercontent.com/67628125/120784864-20ee8680-c55f-11eb-84e9-eaa7c6d0fdcc.png)
+
+## result of screenshot
+![Screenshot](https://user-images.githubusercontent.com/67628125/120784912-2c41b200-c55f-11eb-8755-8630b4dcc38f.PNG)
+
