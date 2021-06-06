@@ -3,6 +3,21 @@
 ### [PPT](https://github.com/mahfuztbt/Software-Design-Pattern-Spring-2021/tree/master/PPT)
 ### [Homework_01](https://github.com/mahfuztbt/Software-Design-Pattern-Spring-2021/tree/master/Homework_01)
 
+
+
+# The Final Homework with Flyweight Design Pattern
+**Step 1:**
+**Step 2:**
+**Step 3:**
+**Step 4:**
+**Step 5:**
+**Step 6:**
+**Step 7:**
+**Step 8:**
+**Step 9:**
+**Step 10:**
+
+
 ## Below the [Abstract Facotry](https://github.com/mahfuztbt/Software-Design-Pattern-Spring-2021/tree/master/Homework_01/Abstract%20Factory%20Ex-02) example
 
 
