@@ -43,20 +43,177 @@ A Flyweight Pattern says that just "to reuse already existing similar kind of ob
 - declares an interface through which flyweights can receive and action extrinsic state.
 2. Concrete Flyweight
 - implements the Flyweight interface and adds storage for intrinsic state, if any. A ConcreteFlyweight object must be sharable. Any state it stores must be intrinsic; that is, it must be independent of the ConcreteFlyweight object's context.
-4. Unshared Concrete Flyweight
+3. Unshared Concrete Flyweight
 - not all Flyweight subclasses need to be shared. The Flyweight interface enables sharing; it doesn't enforce it. It's common for UnsharedConcreteFlyweight objects to have ConcreteFlyweight objects as children at some level in the flyweight object structure (as the Row and Column classes have).
-6. Flyweight Factory
+4. Flyweight Factory
 - creates and manages flyweight objects.
 - ensures that flyweights are shared properly. When a client requests a flyweight, the FlyweightFactory object supplies an existing instance or creates one, if none exists.
-8. Client
+5. Client
 - maintains a refernce to flyweights
 - computes or stores the extrinsic state of flyweight
 
-**Step 1:**
-**Step 2:**
-**Step 3:**
+## [Source Code]()
+**Step 1:** Let's create different potion types
+```java
+/**
+ *
+ * Interface for Potions.
+ *
+ */
+public interface Potion {
+
+    void drink();
+}
+```
+```java
+public class BecomeHulkPotion implements Potion {
+
+    @Override
+    public void drink() {
+        System.out.println("You will be Hulk and get his power. (Potion=" + System.identityHashCode(this) + ")");
+    }
+}
+```
+```java
+public class BeDeadpoolPotion implements Potion {
+
+    @Override
+    public void drink() {
+        System.out.println("You will get Deadpool and will have chance to join Avengers. (Potion=" + System.identityHashCode(this) + ")");
+    }
+}
+```
+```java
+public class BeWolverinePotion implements Potion {
+
+    @Override
+    public void drink() {
+        System.out.println("You will get Logan power. (Potion=" + System.identityHashCode(this) + ")");
+    }
+}
+```
+```java
+public class BeJackieChanPotion implements Potion {
+
+    @Override
+    public void drink() {
+        System.out.println("This is the coolest power you will get, you will be the clone of jackiechan(actor, director,MA). (Potion=" + System.identityHashCode(this) + ")");
+    }
+}
+```
+**Step 2:** Then the actual Flyweight object which is the factory for creating potions
+```java
+/**
+ *
+ PotionFactory is the Flyweight in this example. It minimizes memory use by sharing objec instances.   
+ It holds a map of potion instances and new potions are created only when none of the
+ type already exists.
+ */
+import java.util.EnumMap;
+import java.util.Map;
+
+public class PotionFactory {
+
+    private final Map<PotionType, Potion> potions;
+
+    public PotionFactory() {
+        potions = new EnumMap<>(PotionType.class);
+    }
+
+    Potion createPotion(PotionType type) {
+        Potion potion = potions.get(type);
+        if (potion == null) {
+            switch (type) {
+                case HEALING:
+                    potion = new HealingPotion();
+                    potions.put(type, potion);
+                    break;
+                case HOLY_WATER:
+                    potion = new HolyWaterPotion();
+                    potions.put(type, potion);
+                    break;
+                case INVISIBILITY:
+                    potion = new InvisibilityPotion();
+                    potions.put(type, potion);
+                    break;
+                case POISON:
+                    potion = new PoisonPotion();
+                    potions.put(type, potion);
+                    break;
+                case STRENGTH:
+                    potion = new StrengthPotion();
+                    potions.put(type, potion);
+                    break;
+                case SUPERHUMAN:
+                    potion = new SuperhumanPotion();
+                    potions.put(type, potion);
+                    break;
+                case CAP:
+                    potion = new SuperSoldierCapPotion();
+                    potions.put(type, potion);
+                    break;
+                case HULK:
+                    potion = new BecomeHulkPotion();
+                    potions.put(type, potion);
+                    break;
+                case FLASH:
+                    potion = new FlashPotion();
+                    potions.put(type, potion);
+                    break;
+                case MAGNETO:
+                    potion = new MagnetoPotion();
+                    potions.put(type, potion);
+                    break;
+                case DEADPOOL:
+                    potion = new BeDeadpoolPotion();
+                    potions.put(type, potion);
+                    break;
+                case WEAKNESS:
+                    potion = new PotionOfWeakness();
+                    potions.put(type, potion);
+                    break;
+                case MINECRAFT:
+                    potion = new PotionOfMinecraft();
+                    potions.put(type, potion);
+                    break;
+                case WOLVERINE:
+                    potion = new BeWolverinePotion();
+                    potions.put(type, potion);
+                    break;
+                case JACKIECHAN:
+                    potion = new BeJackieChanPotion();
+                    potions.put(type, potion);
+                    break;
+                case REGENERATOR:
+                    potion = new PotionOfRegenerator();
+                    potions.put(type, potion);
+                    break;
+                default:
+                    break;
+            }
+        }
+        return potion;
+    }
+}
+```
+**Step 3:** It can be used as below
+```java
+PotionFactory factory = new PotionFactory();
+factory.createPotion(PotionType.INVISIBILITY).drink(); // You become invisible. (Potion=6566818)
+factory.createPotion(PotionType.HEALING).drink(); // You feel healed. (Potion=648129364)
+factory.createPotion(PotionType.INVISIBILITY).drink(); // You become invisible. (Potion=6566818)
+factory.createPotion(PotionType.HOLY_WATER).drink(); // You feel blessed. (Potion=1104106489)
+factory.createPotion(PotionType.HOLY_WATER).drink(); // You feel blessed. (Potion=1104106489)
+factory.createPotion(PotionType.HEALING).drink(); // You feel healed. (Potion=648129364)
+```
 **Step 4:**
+```java
+
+```
 **Step 5:**
+```java
+
+```
 **Step 6:**
 **Step 7:**
 **Step 8:**
