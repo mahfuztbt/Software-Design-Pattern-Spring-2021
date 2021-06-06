@@ -37,6 +37,8 @@ A Flyweight Pattern says that just "to reuse already existing similar kind of ob
 - It reduces the amount of memory and storage devices required if the objects are persisted.
 
 ## Structure
+![Picture1](https://user-images.githubusercontent.com/67628125/120919524-aeabac80-c6ec-11eb-9b67-e9d6c7c29b3f.png)
+![image](https://user-images.githubusercontent.com/67628125/120919536-ba976e80-c6ec-11eb-8f1a-72972225414b.png)
 
 ## Perticipants
 1. Flyweight
