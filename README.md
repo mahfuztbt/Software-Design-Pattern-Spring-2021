@@ -13,7 +13,7 @@ Use sharing to support large numbers of fine-grained objects efficiently.
 ## Explanation
 Real world example
 
-> Alchemist's shop has shelves full of magic potions. Many of the potions are the same so there is 
+> In stark industries lab has some super soldier and super human and some power serum. Many of the serum are the same so there is 
 > no need to create new object for each of them. Instead one object instance can represent multiple 
 > shelf items so memory footprint remains small.
 
@@ -22,7 +22,7 @@ In plain words
 > It is used to minimize memory usage or computational expenses by sharing as much as possible with 
 > similar objects.
 
-Wikipedia says
+[Wikipedia says](https://en.wikipedia.org/wiki/Flyweight_pattern#Overview)
 
 > In computer programming, flyweight is a software design pattern. A flyweight is an object that 
 > minimizes memory use by sharing as much data as possible with other similar objects; it is a way 
@@ -68,145 +68,151 @@ public interface Potion {
 }
 ```
 ```java
-public class BecomeHulkPotion implements Potion {
+public class BecomeHulkSerum implements Serum {
 
     @Override
-    public void drink() {
-        System.out.println("You will be Hulk and get his power. (Potion=" + System.identityHashCode(this) + ")");
+    public void push() {
+        System.out.println("You will be Hulk and get his power. (Serum=" + System.identityHashCode(this) + ")");
     }
 }
 ```
 ```java
-public class BeDeadpoolPotion implements Potion {
+public class BeDeadpoolSerum implements Serum {
 
     @Override
-    public void drink() {
-        System.out.println("You will get Deadpool and will have chance to join Avengers. (Potion=" + System.identityHashCode(this) + ")");
+    public void push() {
+        System.out.println("You will have Deadpool power and will have chance to join Avengers. (Serum=" + System.identityHashCode(this) + ")");
     }
 }
 ```
 ```java
-public class BeWolverinePotion implements Potion {
+public class BeWolverineSerum implements Serum {
 
     @Override
-    public void drink() {
-        System.out.println("You will get Logan power. (Potion=" + System.identityHashCode(this) + ")");
+    public void push() {
+        System.out.println("You will get Logan power. (Serum=" + System.identityHashCode(this) + ")");
     }
 }
 ```
 ```java
-public class BeJackieChanPotion implements Potion {
+public class BeJackieChanSerum implements Serum {
 
     @Override
-    public void drink() {
-        System.out.println("This is the coolest power you will get, you will be the clone of jackiechan(actor, director,MA). (Potion=" + System.identityHashCode(this) + ")");
+    public void push() {
+        System.out.println("This is the coolest power you will get, you will be the clone of jackiechan(actor, director,MA). (Serum=" + System.identityHashCode(this) + ")");
     }
 }
 ```
-**Step 2:** Then the actual Flyweight object which is the factory for creating potions
+**Step 2:** Then the actual Flyweight object which is the factory for creating serums
 ```java
 /**
- *
- PotionFactory is the Flyweight in this example. It minimizes memory use by sharing objec instances.   
- It holds a map of potion instances and new potions are created only when none of the
- type already exists.
+ 
+   Serum is the Flyweight in this example. It minimizes memory use by sharing object
+   instances. It holds a map of potion instances and new potions are created only when none of the
+   type already exists.
+ 
  */
+
 import java.util.EnumMap;
 import java.util.Map;
 
-public class PotionFactory {
+public class SerumFactory {
 
-    private final Map<PotionType, Potion> potions;
+    private final Map<SerumType, Serum> Serums;
 
-    public PotionFactory() {
-        potions = new EnumMap<>(PotionType.class);
+    public SerumFactory() {
+        Serums = new EnumMap<>(SerumType.class);
     }
 
-    Potion createPotion(PotionType type) {
-        Potion potion = potions.get(type);
-        if (potion == null) {
+    Serum createPotion(SerumType type) {
+        Serum serum = Serums.get(type);
+        if (serum == null) {
             switch (type) {
                 case HEALING:
-                    potion = new HealingPotion();
-                    potions.put(type, potion);
+                    serum = new HealingSerum();
+                    Serums.put(type, serum);
                     break;
                 case HOLY_WATER:
-                    potion = new HolyWaterPotion();
-                    potions.put(type, potion);
+                    serum = new HolyWaterSerum();
+                    Serums.put(type, serum);
                     break;
                 case INVISIBILITY:
-                    potion = new InvisibilityPotion();
-                    potions.put(type, potion);
+                    serum = new InvisibilitySerum();
+                    Serums.put(type, serum);
                     break;
                 case POISON:
-                    potion = new PoisonPotion();
-                    potions.put(type, potion);
+                    serum = new PoisonSerum();
+                    Serums.put(type, serum);
                     break;
                 case STRENGTH:
-                    potion = new StrengthPotion();
-                    potions.put(type, potion);
+                    serum = new StrengthSerum();
+                    Serums.put(type, serum);
                     break;
                 case SUPERHUMAN:
-                    potion = new SuperhumanPotion();
-                    potions.put(type, potion);
+                    serum = new SuperhumanSerum();
+                    Serums.put(type, serum);
                     break;
                 case CAP:
-                    potion = new SuperSoldierCapPotion();
-                    potions.put(type, potion);
+                    serum = new SuperSoldierCapSerum();
+                    Serums.put(type, serum);
                     break;
                 case HULK:
-                    potion = new BecomeHulkPotion();
-                    potions.put(type, potion);
+                    serum = new BecomeHulkSerum();
+                    Serums.put(type, serum);
                     break;
                 case FLASH:
-                    potion = new FlashPotion();
-                    potions.put(type, potion);
+                    serum = new FlashSerum();
+                    Serums.put(type, serum);
                     break;
                 case MAGNETO:
-                    potion = new MagnetoPotion();
-                    potions.put(type, potion);
+                    serum = new MagnetoSerum();
+                    Serums.put(type, serum);
                     break;
                 case DEADPOOL:
-                    potion = new BeDeadpoolPotion();
-                    potions.put(type, potion);
+                    serum = new BeDeadpoolSerum();
+                    Serums.put(type, serum);
                     break;
                 case WEAKNESS:
-                    potion = new PotionOfWeakness();
-                    potions.put(type, potion);
+                    serum = new SerumOfWeakness();
+                    Serums.put(type, serum);
                     break;
                 case MINECRAFT:
-                    potion = new PotionOfMinecraft();
-                    potions.put(type, potion);
+                    serum = new SerumOfMinecraft();
+                    Serums.put(type, serum);
                     break;
                 case WOLVERINE:
-                    potion = new BeWolverinePotion();
-                    potions.put(type, potion);
+                    serum = new BeWolverineSerum();
+                    Serums.put(type, serum);
                     break;
                 case JACKIECHAN:
-                    potion = new BeJackieChanPotion();
-                    potions.put(type, potion);
+                    serum = new BeJackieChanSerum();
+                    Serums.put(type, serum);
                     break;
                 case REGENERATOR:
-                    potion = new PotionOfRegenerator();
-                    potions.put(type, potion);
+                    serum = new SerumOfRegenerator();
+                    Serums.put(type, serum);
+                    break;
+                case MINDREADER:
+                    serum = new MindReaderSerum();
+                    Serums.put(type, serum);
                     break;
                 default:
                     break;
             }
         }
-        return potion;
+        return serum;
     }
 }
 ```
 **Step 3:** It can be used as below
 ```java
-PotionFactory factory = new PotionFactory();
-factory.createPotion(PotionType.INVISIBILITY).drink(); // You become invisible. (Potion=6566818)
-factory.createPotion(PotionType.HEALING).drink(); // You feel healed. (Potion=648129364)
-factory.createPotion(PotionType.INVISIBILITY).drink(); // You become invisible. (Potion=6566818)
-factory.createPotion(PotionType.HOLY_WATER).drink(); // You feel blessed. (Potion=1104106489)
-factory.createPotion(PotionType.HOLY_WATER).drink(); // You feel blessed. (Potion=1104106489)
-factory.createPotion(PotionType.HEALING).drink(); // You feel healed. (Potion=648129364)
+SerumFactory factory = new SerumFactory();
+factory.createSerum(SerumType.INVISIBILITY).push(); // You become invisible. (serum=6566818)
+factory.createSerum(SerumType.HEALING).push(); // You feel healed. (serum=648129364)
+factory.createSerum(SerumType.INVISIBILITY).push(); // You become Invisible. (serum=6566818)
+factory.createSerum(SerumType.HOLY_WATER).push(); // You feel blessed. (serum=1104106489)
+factory.createSerum(SerumType.HOLY_WATER).push(); // You feel blessed. (serum=1104106489)
+factory.createSerum(SerumType.HEALING).push(); // You feel healed. (serum=648129364)
 ```
 **Step 4:**
 ```java
