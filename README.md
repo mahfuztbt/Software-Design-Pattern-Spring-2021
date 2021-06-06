@@ -29,98 +29,39 @@ Wikipedia says
 > to use objects in large numbers when a simple repeated representation would use an unacceptable 
 > amount of memory.
 
-**Programmatic example**
 
-Translating our alchemist shop example from above. First of all we have different potion types:
+A Flyweight Pattern says that just "to reuse already existing similar kind of objects by storing them and create new object when no matching object is found".
 
-```java
-public interface Potion {
-  void drink();
-}
+## Advantage of Flyweight Pattern
+- It reduces the number of objects.
+- It reduces the amount of memory and storage devices required if the objects are persisted.
 
-@Slf4j
-public class HealingPotion implements Potion {
-  @Override
-  public void drink() {
-    LOGGER.info("You feel healed. (Potion={})", System.identityHashCode(this));
-  }
-}
+## Structure
 
-@Slf4j
-public class HolyWaterPotion implements Potion {
-  @Override
-  public void drink() {
-    LOGGER.info("You feel blessed. (Potion={})", System.identityHashCode(this));
-  }
-}
+## Perticipants
+1. Flyweight
+- declares an interface through which flyweights can receive and action extrinsic state.
+2. Concrete Flyweight
+- implements the Flyweight interface and adds storage for intrinsic state, if any. A ConcreteFlyweight object must be sharable. Any state it stores must be intrinsic; that is, it must be independent of the ConcreteFlyweight object's context.
+4. Unshared Concrete Flyweight
+- not all Flyweight subclasses need to be shared. The Flyweight interface enables sharing; it doesn't enforce it. It's common for UnsharedConcreteFlyweight objects to have ConcreteFlyweight objects as children at some level in the flyweight object structure (as the Row and Column classes have).
+6. Flyweight Factory
+- creates and manages flyweight objects.
+- ensures that flyweights are shared properly. When a client requests a flyweight, the FlyweightFactory object supplies an existing instance or creates one, if none exists.
+8. Client
+- maintains a refernce to flyweights
+- computes or stores the extrinsic state of flyweight
 
-@Slf4j
-public class InvisibilityPotion implements Potion {
-  @Override
-  public void drink() {
-    LOGGER.info("You become invisible. (Potion={})", System.identityHashCode(this));
-  }
-}
-```
-
-Then the actual Flyweight class `PotionFactory`, which is the factory for creating potions.
-
-```java
-public class PotionFactory {
-
-  private final Map<PotionType, Potion> potions;
-
-  public PotionFactory() {
-    potions = new EnumMap<>(PotionType.class);
-  }
-
-  Potion createPotion(PotionType type) {
-    var potion = potions.get(type);
-    if (potion == null) {
-      switch (type) {
-        case HEALING:
-          potion = new HealingPotion();
-          potions.put(type, potion);
-          break;
-        case HOLY_WATER:
-          potion = new HolyWaterPotion();
-          potions.put(type, potion);
-          break;
-        case INVISIBILITY:
-          potion = new InvisibilityPotion();
-          potions.put(type, potion);
-          break;
-        default:
-          break;
-      }
-    }
-    return potion;
-  }
-}
-```
-
-And it can be used as below:
-
-```java
-var factory = new PotionFactory();
-factory.createPotion(PotionType.INVISIBILITY).drink(); // You become invisible. (Potion=6566818)
-factory.createPotion(PotionType.HEALING).drink(); // You feel healed. (Potion=648129364)
-factory.createPotion(PotionType.INVISIBILITY).drink(); // You become invisible. (Potion=6566818)
-factory.createPotion(PotionType.HOLY_WATER).drink(); // You feel blessed. (Potion=1104106489)
-factory.createPotion(PotionType.HOLY_WATER).drink(); // You feel blessed. (Potion=1104106489)
-factory.createPotion(PotionType.HEALING).drink(); // You feel healed. (Potion=648129364)
-```
-
-Program output:
-
-```java
-You become invisible. (Potion=6566818)
-You feel healed. (Potion=648129364)
-You become invisible. (Potion=6566818)
-You feel blessed. (Potion=1104106489)
-You feel blessed. (Potion=1104106489)
-You feel healed. (Potion=648129364)
-```
+**Step 1:**
+**Step 2:**
+**Step 3:**
+**Step 4:**
+**Step 5:**
+**Step 6:**
+**Step 7:**
+**Step 8:**
+**Step 9:**
+**Step 10:**
 
 
 ## Applicability
@@ -135,16 +76,7 @@ Flyweight pattern when all of the following are true:
 removed.
 * The application doesn't depend on object identity. Since flyweight objects may be shared, identity 
 tests will return true for conceptually distinct objects.
-**Step 1:**
-**Step 2:**
-**Step 3:**
-**Step 4:**
-**Step 5:**
-**Step 6:**
-**Step 7:**
-**Step 8:**
-**Step 9:**
-**Step 10:**
+
 
 
 
