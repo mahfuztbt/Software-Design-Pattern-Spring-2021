@@ -398,8 +398,7 @@ tests will return true for conceptually distinct objects.
 
 
 ## Class Diagram
-![ClassDiagram](https://user-images.githubusercontent.com/67628125/121007552-ab83ef80-c7c4-11eb-986c-191dff8c290d.png)
-
+![Class Diagram](https://user-images.githubusercontent.com/67628125/121008273-690ee280-c7c5-11eb-879d-747065ed6a9f.png)
 
 
 
