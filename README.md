@@ -5,7 +5,7 @@
 
 
 
-# The Final Homework with Flyweight Design Pattern
+# The [Final Homework](https://github.com/mahfuztbt/Software-Design-Pattern-Spring-2021/tree/master/Final%20Homework) with Flyweight Design Pattern
 
 ## Intent
 Flyweight is a structural design pattern that lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.
@@ -315,6 +315,7 @@ public class StarkIndustriesLab {
      * Enumerate serums
      */
     public void enumerate() {
+![Result 1](https://user-images.githubusercontent.com/67628125/121007425-9ad37980-c7c4-11eb-9581-56d78b841e5b.PNG)
 
         System.out.println("Bellow the serum you will find in stark lab 1\n" +
                 "if you have any problem then please contract with Ronnie\n");
@@ -392,9 +393,12 @@ removed.
 tests will return true for conceptually distinct objects.
 
 ## Result 
+![Result 1](https://user-images.githubusercontent.com/67628125/121007441-9f982d80-c7c4-11eb-8efa-430d48aa9b33.PNG)
+![Result 2](https://user-images.githubusercontent.com/67628125/121007471-a626a500-c7c4-11eb-9b05-41ade44f234a.PNG)
+
 
 ## Class Diagram
-
+![ClassDiagram](https://user-images.githubusercontent.com/67628125/121007552-ab83ef80-c7c4-11eb-986c-191dff8c290d.png)
 
 
 
