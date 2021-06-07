@@ -57,7 +57,7 @@ A Flyweight Pattern says that just "to reuse already existing similar kind of ob
 - computes or stores the extrinsic state of flyweight
 
 ## [Source Code]()
-**Step 1:** Let's create different potion types
+**Step 1:** Let's Serums Interface
 ```java
 /**
  *
@@ -69,6 +69,21 @@ public interface Serum {
     void push();
 }
 ```
+**Step 2:** Now let's create enum differnet types of serums
+```java
+/**
+ *
+ * Enumeration for serums types.
+ *
+ */
+public enum SerumType {
+
+    HEALING, INVISIBILITY, STRENGTH, HOLY_WATER, POISON, SUPERHUMAN, HULK, DEADPOOL, JACKIECHAN, WOLVERINE, FLASH, MAGNETO,
+    MINECRAFT, REGENERATOR, WEAKNESS, CAP, MINDREADER
+}
+```
+
+**Step 3:** Now create differnt types of surum
 ```java
 public class BecomeHulkSerum implements Serum {
 
@@ -105,7 +120,7 @@ public class BeJackieChanSerum implements Serum {
     }
 }
 ```
-**Step 2:** Then the actual Flyweight object which is the factory for creating serums
+**Step 4:** Then the actual Flyweight object which is the factory for creating serums
 ```java
 /**
  
@@ -205,8 +220,119 @@ public class SerumFactory {
         return serum;
     }
 }
+
 ```
-**Step 3:** It can be used as below
+**Step 5:** Now create stark industries lab to uses SerumFactory to provide the serums
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ *
+ * Stark industry holds serum on its shelves. It uses SerumFactory to provide the serums.
+ *
+ */
+public class StarkIndustriesLab {
+
+    private List<Serum> lab01;
+    private List<Serum> lab02;
+
+    /**
+     * Constructor
+     */
+    public StarkIndustriesLab() {
+        lab01 = new ArrayList<>();
+        lab02 = new ArrayList<>();
+        fillShelves();
+    }
+
+    private void fillShelves() {
+
+        SerumFactory factory = new SerumFactory();
+
+        lab01.add(factory.createPotion(SerumType.INVISIBILITY));
+        lab01.add(factory.createPotion(SerumType.INVISIBILITY));
+        lab01.add(factory.createPotion(SerumType.STRENGTH));
+        lab01.add(factory.createPotion(SerumType.HEALING));
+        lab01.add(factory.createPotion(SerumType.INVISIBILITY));
+        lab01.add(factory.createPotion(SerumType.STRENGTH));
+        lab01.add(factory.createPotion(SerumType.MINDREADER));
+        lab01.add(factory.createPotion(SerumType.MINDREADER));
+        lab01.add(factory.createPotion(SerumType.HEALING));
+        lab01.add(factory.createPotion(SerumType.HEALING));
+
+        lab01.add(factory.createPotion(SerumType.HULK));
+        lab01.add(factory.createPotion(SerumType.HULK));
+        lab01.add(factory.createPotion(SerumType.DEADPOOL));
+        lab01.add(factory.createPotion(SerumType.DEADPOOL));
+        lab01.add(factory.createPotion(SerumType.JACKIECHAN));
+        lab01.add(factory.createPotion(SerumType.JACKIECHAN));
+        lab01.add(factory.createPotion(SerumType.WOLVERINE));
+        lab01.add(factory.createPotion(SerumType.WOLVERINE));
+        lab01.add(factory.createPotion(SerumType.FLASH));
+        lab01.add(factory.createPotion(SerumType.FLASH));
+
+        lab02.add(factory.createPotion(SerumType.POISON));
+        lab02.add(factory.createPotion(SerumType.POISON));
+        lab02.add(factory.createPotion(SerumType.POISON));
+        lab02.add(factory.createPotion(SerumType.HOLY_WATER));
+        lab02.add(factory.createPotion(SerumType.HOLY_WATER));
+        lab02.add(factory.createPotion(SerumType.WEAKNESS));
+        lab02.add(factory.createPotion(SerumType.SUPERHUMAN));
+
+        lab02.add(factory.createPotion(SerumType.MAGNETO));
+        lab02.add(factory.createPotion(SerumType.MAGNETO));
+        lab02.add(factory.createPotion(SerumType.MINECRAFT));
+        lab02.add(factory.createPotion(SerumType.REGENERATOR));
+        lab02.add(factory.createPotion(SerumType.REGENERATOR));
+        lab02.add(factory.createPotion(SerumType.REGENERATOR));
+        lab02.add(factory.createPotion(SerumType.WEAKNESS));
+        lab02.add(factory.createPotion(SerumType.CAP));
+
+
+    }
+
+    /**
+     * Get a read-only list of all the items on the top shelf
+     *
+     * @return The top shelf serums
+     */
+    public final List<Serum> getLab01() {
+        return Collections.unmodifiableList(this.lab01);
+    }
+
+    /**
+     * Get a read-only list of all the items on the bottom shelf
+     *
+     * @return The bottom shelf serums
+     */
+    public final List<Serum> getLab02() {
+        return Collections.unmodifiableList(this.lab02);
+    }
+
+    /**
+     * Enumerate serums
+     */
+    public void enumerate() {
+
+        System.out.println("Bellow the serum you will find in stark lab 1\n" +
+                "if you have any problem then please contract with Ronnie\n");
+
+        for (Serum p : lab01) {
+            p.push();
+        }
+
+        System.out.println("\nBellow the serum you will find in stark lab 2\n" +
+                "if you have any problem then please contract with Ronnie\n");
+
+        for (Serum p : lab02) {
+            p.push();
+        }
+    }
+}
+```
+**Step 6:** It can be used as below
 ```java
 SerumFactory factory = new SerumFactory();
 factory.createSerum(SerumType.INVISIBILITY).push(); // You become invisible. (serum=6566818)
@@ -216,19 +342,40 @@ factory.createSerum(SerumType.HOLY_WATER).push(); // You feel blessed. (serum=11
 factory.createSerum(SerumType.HOLY_WATER).push(); // You feel blessed. (serum=1104106489)
 factory.createSerum(SerumType.HEALING).push(); // You feel healed. (serum=648129364)
 ```
-**Step 4:**
+**Step 7:** Create App class and run the program
 ```java
 
+/**
+ *
+ * Flyweight pattern is useful when the program needs a huge amount of objects. It provides means to
+ * decrease resource usage by sharing object instances.
+ * <p>
+ * In this example {@link StarkIndustriesLab} has great amount of potions on its shelves. To fill the
+ * shelves {@link StarkIndustriesLab} uses {@link SerumFactory} (which represents the Flyweight in this
+ * example). Internally {@link SerumFactory} holds a map of the serums and lazily creates new ones
+ * when requested.
+ * <p>
+ * To enable safe sharing, between clients and threads, Flyweight objects must be immutable.
+ * Flyweight objects are by definition value objects.
+ *
+ */
+public class App {
+
+    /**
+     * Program entry point
+     *
+     * @param args command line args
+     */
+    public static void main(String[] args) {
+        StarkIndustriesLab starkIndustriesLab = new StarkIndustriesLab();
+        starkIndustriesLab.enumerate();
+    }
+}
 ```
 **Step 5:**
 ```java
 
 ```
-**Step 6:**
-**Step 7:**
-**Step 8:**
-**Step 9:**
-**Step 10:**
 
 
 ## Applicability
@@ -244,7 +391,9 @@ removed.
 * The application doesn't depend on object identity. Since flyweight objects may be shared, identity 
 tests will return true for conceptually distinct objects.
 
+## Result 
 
+## Class Diagram
 
 
 
