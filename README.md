@@ -9,7 +9,7 @@
 
 ## Intent
 Flyweight is a structural design pattern that lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.
-![image](https://user-images.githubusercontent.com/67628125/120953123-f24ef680-c77e-11eb-86cb-1f82915d3668.png)
+
 
 ## Explanation
 Real world example
@@ -39,7 +39,8 @@ A Flyweight Pattern says that just "to reuse already existing similar kind of ob
 
 ## Structure
 ![Picture1](https://user-images.githubusercontent.com/67628125/120919524-aeabac80-c6ec-11eb-9b67-e9d6c7c29b3f.png)
-![image](https://user-images.githubusercontent.com/67628125/120919536-ba976e80-c6ec-11eb-8f1a-72972225414b.png)
+![sequence](https://user-images.githubusercontent.com/67628125/120954351-8ae67600-c781-11eb-8655-e3e9ee8d36d5.png)
+
 
 ## Perticipants
 1. Flyweight
