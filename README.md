@@ -8,7 +8,8 @@
 # The Final Homework with Flyweight Design Pattern
 
 ## Intent
-Use sharing to support large numbers of fine-grained objects efficiently.
+Flyweight is a structural design pattern that lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.
+![image](https://user-images.githubusercontent.com/67628125/120953123-f24ef680-c77e-11eb-86cb-1f82915d3668.png)
 
 ## Explanation
 Real world example
