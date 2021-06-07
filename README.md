@@ -42,7 +42,7 @@ A Flyweight Pattern says that just "to reuse already existing similar kind of ob
 ![sequence](https://user-images.githubusercontent.com/67628125/120954351-8ae67600-c781-11eb-8655-e3e9ee8d36d5.png)
 
 
-## Perticipants
+## Participants
 1. Flyweight
 - declares an interface through which flyweights can receive and action extrinsic state.
 2. Concrete Flyweight
@@ -61,12 +61,12 @@ A Flyweight Pattern says that just "to reuse already existing similar kind of ob
 ```java
 /**
  *
- * Interface for Potions.
+ * Interface for Serums.
  *
  */
-public interface Potion {
+public interface Serum {
 
-    void drink();
+    void push();
 }
 ```
 ```java
