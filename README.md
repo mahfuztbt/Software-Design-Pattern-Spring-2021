@@ -315,7 +315,7 @@ public class StarkIndustriesLab {
      * Enumerate serums
      */
     public void enumerate() {
-![Result 1](https://user-images.githubusercontent.com/67628125/121007425-9ad37980-c7c4-11eb-9581-56d78b841e5b.PNG)
+
 
         System.out.println("Bellow the serum you will find in stark lab 1\n" +
                 "if you have any problem then please contract with Ronnie\n");
