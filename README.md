@@ -336,12 +336,12 @@ public class StarkIndustriesLab {
 **Step 6:** It can be used as below
 ```java
 SerumFactory factory = new SerumFactory();
-factory.createSerum(SerumType.INVISIBILITY).push(); // You become invisible. (serum=6566818)
-factory.createSerum(SerumType.HEALING).push(); // You feel healed. (serum=648129364)
-factory.createSerum(SerumType.INVISIBILITY).push(); // You become Invisible. (serum=6566818)
-factory.createSerum(SerumType.HOLY_WATER).push(); // You feel blessed. (serum=1104106489)
-factory.createSerum(SerumType.HOLY_WATER).push(); // You feel blessed. (serum=1104106489)
-factory.createSerum(SerumType.HEALING).push(); // You feel healed. (serum=648129364)
+factory.createSerum(SerumType.HULK).push(); // You will be Hulk and get his power. (Serum=883049899)
+factory.createSerum(SerumType.WOLVERINE).push(); // You will get Logan power. (Serum=317574433)
+factory.createSerum(SerumType.DEADPOOL).push(); // You will have Deadpool power and will have chance to join Avengers. (Serum=2093176254)
+factory.createSerum(SerumType.HULK).push(); // You will be Hulk and get his power. (Serum=883049899)
+factory.createSerum(SerumType.WOLVERINE).push(); // You will get Logan power. (Serum=317574433)
+factory.createSerum(SerumType.DEADPOOL).push(); // You will have Deadpool power and will have chance to join Avengers. (Serum=2093176254)
 ```
 **Step 7:** Create App class and run the program
 ```java
