@@ -56,7 +56,7 @@ A Flyweight Pattern says that just "to reuse already existing similar kind of ob
 - maintains a refernce to flyweights
 - computes or stores the extrinsic state of flyweight
 
-## [Source Code]()
+## [Source Code](https://github.com/mahfuztbt/Software-Design-Pattern-Spring-2021/tree/master/Final%20Homework/src)
 **Step 1:** Let's Serums Interface
 ```java
 /**
@@ -378,7 +378,13 @@ public class App {
 
 ```
 
+## Result 
+![Result 1](https://user-images.githubusercontent.com/67628125/121007441-9f982d80-c7c4-11eb-8efa-430d48aa9b33.PNG)
+![Result 2](https://user-images.githubusercontent.com/67628125/121007471-a626a500-c7c4-11eb-9b05-41ade44f234a.PNG)
 
+
+## Class Diagram
+![Class Diagram](https://user-images.githubusercontent.com/67628125/121008273-690ee280-c7c5-11eb-879d-747065ed6a9f.png)
 ## Applicability
 
 The Flyweight pattern's effectiveness depends heavily on how and where it's used. Apply the 
@@ -392,13 +398,6 @@ removed.
 * The application doesn't depend on object identity. Since flyweight objects may be shared, identity 
 tests will return true for conceptually distinct objects.
 
-## Result 
-![Result 1](https://user-images.githubusercontent.com/67628125/121007441-9f982d80-c7c4-11eb-8efa-430d48aa9b33.PNG)
-![Result 2](https://user-images.githubusercontent.com/67628125/121007471-a626a500-c7c4-11eb-9b05-41ade44f234a.PNG)
-
-
-## Class Diagram
-![Class Diagram](https://user-images.githubusercontent.com/67628125/121008273-690ee280-c7c5-11eb-879d-747065ed6a9f.png)
 
 
 
