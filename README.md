@@ -373,7 +373,6 @@ public class App {
     }
 }
 ```
-**Step 5:**
 ```java
 
 ```
@@ -402,7 +401,7 @@ tests will return true for conceptually distinct objects.
 
 
 
-## Below the [Abstract Facotry](https://github.com/mahfuztbt/Software-Design-Pattern-Spring-2021/tree/master/Homework_01/Abstract%20Factory%20Ex-02) example
+# Below the [Abstract Facotry](https://github.com/mahfuztbt/Software-Design-Pattern-Spring-2021/tree/master/Homework_01/Abstract%20Factory%20Ex-02) example
 
 
 **Step 1:** Create a Bank interface
