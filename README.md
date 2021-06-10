@@ -377,7 +377,7 @@ public class App {
 
 ```
 
-## Result 
+## Result:
 ![Result 1](https://user-images.githubusercontent.com/67628125/121007441-9f982d80-c7c4-11eb-8efa-430d48aa9b33.PNG)
 ![Result 2](https://user-images.githubusercontent.com/67628125/121007471-a626a500-c7c4-11eb-9b05-41ade44f234a.PNG)
 
